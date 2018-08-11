@@ -10,9 +10,9 @@ class SearchBooks extends Component {
 		resultBooks:[]
 	}
 
-	updateQuery = (query) => {
-		query = query.trim();
+	updateQuery = (query) => {		
 		this.setState({query});
+		query = query.trim();
 		BooksAPI.search(query).then((books) => {
 			console.log(books);
 			if (typeof books !== 'undefined' && typeof books.error === 'undefined' && books.length > 0) {
