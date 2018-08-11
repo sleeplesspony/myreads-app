@@ -4,7 +4,6 @@ import './App.css'
 import BookList from './BookList'
 import SearchBooks from './SearchBooks'
 import { Route } from 'react-router-dom'
-import { Link } from 'react-router-dom'
 
 class BooksApp extends Component {
   state = {
@@ -21,7 +20,6 @@ class BooksApp extends Component {
   render() {
     return (
       <div className="app">
-
         <Route exact path='/' render={() => (
           <BookList books={this.state.books}/>
         )}/>  
