@@ -14,15 +14,15 @@ class BookList extends Component {
 	            <div>
 	                <BookShelf 
 	                	shelf='Currently Reading'
-	                  	books={ this.props.books.filter((book) => (book.shelf == 'currentlyReading')) } 
+	                  	books={ this.props.books.filter((book) => (book.shelf === 'currentlyReading')) } 
 	                />
 	                <BookShelf 
 	                  	shelf='Want to Read'
-	                  	books={ this.props.books.filter((book) => (book.shelf == 'wantToRead')) } 
+	                  	books={ this.props.books.filter((book) => (book.shelf === 'wantToRead')) } 
 	                />
 	                <BookShelf 
 	                  	shelf='Read'
-	                  	books={ this.props.books.filter((book) => (book.shelf == 'read')) } 
+	                  	books={ this.props.books.filter((book) => (book.shelf === 'read')) } 
 	                />
 	            </div>
             </div>
