@@ -5,15 +5,18 @@ class Book extends Component {
 
 	render() {
 
+		const { bookData } = this.props
+		let bookImage = bookData.imageLinks ? `url(${bookData.imageLinks.thumbnail})` : 'none';
+
 		return (
 			<div className="book">
 				<div className="book-top">
-				<div className="book-cover" style={{ width: 128, height: 170, backgroundImage: 'url(' + this.props.bookData.imageLinks.thumbnail + ')' }}></div>
+				<div className="book-cover" style={{ width: 128, height: 170, backgroundImage: bookImage }}></div>
 				<ShelfChanger />
 				</div>
-				<div className="book-title">{ this.props.bookData.title }</div>
+				<div className="book-title">{ bookData.title }</div>
 				<div className="book-authors">
-					{ this.props.bookData.authors && this.props.bookData.authors.join(', ') }
+					{ bookData.authors && bookData.authors.join(', ') }
 				</div>
 			</div>
 		)
