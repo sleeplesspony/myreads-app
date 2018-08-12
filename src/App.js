@@ -18,6 +18,7 @@ class BooksApp extends Component {
         })
     }
 
+    // Move book to selected shelf 
     moveBook = (book, shelf) => {
         const availShelves = ['wantToRead', 'currentlyReading', 'read', 'none'];
         if (availShelves.includes(shelf)) {

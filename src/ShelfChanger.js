@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 class ShelfChanger extends Component {
 
+	// handle book shelf selection
 	handleChange = (event) => {
 		let shelf = event.target.value;
 		this.props.onShelfChange(this.props.book, shelf);		

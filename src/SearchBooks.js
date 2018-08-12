@@ -10,6 +10,7 @@ class SearchBooks extends Component {
 		resultBooks:[]
 	}
 
+	// handle search query update
 	updateQuery = (query) => {		
 		this.setState({query});
 		query = query.trim();
