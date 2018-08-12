@@ -15,13 +15,23 @@ class SearchBooks extends Component {
 		query = query.trim();
 		BooksAPI.search(query).then((books) => {
 			console.log(books);
+			if (query !== this.state.query) return;
 			if (typeof books !== 'undefined' && typeof books.error === 'undefined' && books.length > 0) {
-				console.log(typeof books);
+				let resultBooks = books;
+				if(this.props.booksOnShelves.length) {
+					let resultBooks = books.map((book) => {
+						for(let i = 0; i < this.props.booksOnShelves.length; i++) {
+							if (book.id === this.props.booksOnShelves[i].id) {
+								book.shelf = this.props.booksOnShelves[i].shelf;
+							}
+						}
+					});
+				}
 				this.setState({resultBooks: books})
 			} else {
 				this.setState({resultBooks:[]})
 			}			
-		}).catch((error) => { console.log(`Error occures ${error}`)})
+		}).catch((error) => { console.log(`Error occures ${error}`);})
 	} 
 
 	render () {
@@ -39,7 +49,7 @@ class SearchBooks extends Component {
 					</div>
 				</div>
 				<div className="search-books-results">
-					<BookGrid books={this.state.resultBooks} />
+					<BookGrid books={this.state.resultBooks} onShelfChange={this.props.onShelfChange}/>
 				</div>
 			</div>
 		)
